@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS productos(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            codigo TEXT UNIQUE NOT NULL,
+            nombre TEXT NOT NULL,
+            categoria TEXT,
+            precio REAL NOT NULL,
+            stock INTEGER NOT NULL
+        
+        CREATE TABLE IF NOT EXISTS ventas(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            fecha TEXT NOT NULL,
+            producto_id INTEGER NOT NULL,
+            cantidad INTEGER NOT NULL,
+            total REAL NOT NULL,
+            FOREIGN KEY(producto_id) REFERENCES productos(id)
